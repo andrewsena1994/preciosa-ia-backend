@@ -8,16 +8,19 @@ app = FastAPI(title="Preciosa IA – API MVP")
 # --- CORS (ajuste o domínio da Vercel aqui) ---
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:3000",
-        "http://127.0.0.1:3000",
-        "https://preciosa-ia-frontend.vercel.app",  # seu domínio público
-    ],
+   
+ALLOWED_ORIGINS = [
+    "https://precoisa-ia-frontend.vercel.app",  # seu domínio Vercel
+    "http://localhost:3000",                    # dev local (opcional)
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 # --- Healthcheck ---
 @app.get("/health")
 def health():
