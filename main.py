@@ -45,6 +45,3 @@ def caption_generate(payload: CaptionIn):
         f"{base} Nova coleção Preciosa.",
     ]
     return {"variacoes": variacoes[:5]}
-git add main.py
-git commit -m "CORS: inclui domínio da Vercel"
-git push
