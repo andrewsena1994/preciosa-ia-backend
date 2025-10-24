@@ -6,7 +6,7 @@ from pydantic import BaseModel
 app = FastAPI(title="Preciosa IA – API MVP")
 
 # --- CORS (ajuste o domínio da Vercel aqui) ---
-app.add_middleware(
+app.add_middleware
     CORSMiddleware,
    
 ALLOWED_ORIGINS = [
