@@ -23,6 +23,10 @@ class CaptionIn(BaseModel):
 @app.get("/health")
 def health():
     return {"status": "ok"}
+git add main.py
+git commit -m "CORS: inclui domínio da Vercel"
+git push
+
 
 @app.get("/docs", include_in_schema=False)
 def custom_docs():
