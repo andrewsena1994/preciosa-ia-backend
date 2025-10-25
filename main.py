@@ -5,13 +5,12 @@ from pydantic import BaseModel
 
 app = FastAPI(title="Preciosa IA – API MVP")
 
-# --- CORS (ajuste o domínio da Vercel aqui) ---
-app.add_middleware
-    CORSMiddleware,
-   
+# --- CORS (ajuste do domínio da Vercel aqui) ---
+from fastapi.middleware.cors import CORSMiddleware
+
 ALLOWED_ORIGINS = [
-    "https://precoisa-ia-frontend.vercel.app",  # seu domínio Vercel
-    "http://localhost:3000",                    # dev local (opcional)
+    "https://precoisa-ia-frontend.vercel.app",  # domínio do front na Vercel
+    "http://localhost:3000",                    # dev local opcional
 ]
 
 app.add_middleware(
@@ -21,6 +20,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 # --- Healthcheck ---
 @app.get("/health")
 def health():
